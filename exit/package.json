@@ -6,7 +6,7 @@
 	"keywords": ["pi", "pi-package", "pi-extension", "exit", "quit"],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/<you>/pi-extensions.git",
+		"url": "git+https://github.com/lu-zhengda/pi-extensions.git",
 		"directory": "exit"
 	},
 	"peerDependencies": {
@@ -14,7 +14,6 @@
 	},
 	"files": ["extensions"],
 	"pi": {
-		"extensions": ["extensions"],
-		"image": "https://example.com/exit-preview.png"
+		"extensions": ["extensions"]
 	}
 }

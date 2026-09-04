@@ -6,7 +6,7 @@
 	"keywords": ["pi", "pi-package", "pi-extension", "clear", "session"],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/<you>/pi-extensions.git",
+		"url": "git+https://github.com/lu-zhengda/pi-extensions.git",
 		"directory": "clear"
 	},
 	"peerDependencies": {
@@ -15,7 +15,6 @@
 	},
 	"files": ["extensions"],
 	"pi": {
-		"extensions": ["extensions"],
-		"image": "https://example.com/clear-preview.png"
+		"extensions": ["extensions"]
 	}
 }
