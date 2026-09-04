@@ -41,9 +41,9 @@ exit/
 
 ## Releasing
 
-Publishing is automated. Push to `main` and the `publish` workflow publishes any package whose files changed. To release a change:
+Publishing is automated via [Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) and is triggered by a GitHub Release (see `.github/workflows/publish.yml`). To release:
 
-1. Bump `version` in that package's `package.json`.
-2. Commit and push to `main`.
+1. Bump `version` in **both** `clear/package.json` and `exit/package.json` (the workflow publishes both in one release).
+2. Commit, push, and create a GitHub Release with the new tag.
 
-The workflow reads the npm token from the `NPM_TOKEN` repository secret (a granular npm access token with read-and-write on both packages).
+No npm token is stored — the workflow uses GitHub OIDC, requires the `release` environment on the trusted-publisher config, and publishes with provenance. Make sure both packages have the trusted publisher registered on npmjs.com (owner `lu-zhengda`, repo `pi-extensions`, workflow `publish.yml`, environment `release`) with direct `npm publish` allowed.
