@@ -1,0 +1,42 @@
+name: publish
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      # Only publish packages whose files changed in this push.
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            clear: clear/**
+            exit: exit/**
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org/
+
+      - name: Publish pi-ext-clear
+        if: steps.changes.outputs.clear == 'true'
+        working-directory: clear
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish pi-ext-exit
+        if: steps.changes.outputs.exit == 'true'
+        working-directory: exit
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

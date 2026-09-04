@@ -39,9 +39,11 @@ exit/
   extensions/exit.ts
 ```
 
-To publish one (after creating a GitHub repo and replacing `<you>` in the package manifests):
+## Releasing
 
-```bash
-cd clear && npm publish
-cd ../exit && npm publish
-```
+Publishing is automated. Push to `main` and the `publish` workflow publishes any package whose files changed. To release a change:
+
+1. Bump `version` in that package's `package.json`.
+2. Commit and push to `main`.
+
+The workflow reads the npm token from the `NPM_TOKEN` repository secret (a granular npm access token with read-and-write on both packages).
