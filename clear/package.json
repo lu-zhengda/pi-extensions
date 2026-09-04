@@ -1,6 +1,6 @@
 {
 	"name": "pi-ext-clear",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "pi extension: /clear \u2014 clear the terminal and start a new session",
 	"license": "MIT",
 	"keywords": [
