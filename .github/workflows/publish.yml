@@ -1,39 +1,26 @@
-name: publish
+name: Publish to npm
 
 on:
-  push:
-    branches: [main]
-
-permissions:
-  contents: read
-  id-token: write  # required for npm Trusted Publishing via OIDC
+  release:
+    types: [published]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
-
-      # Only publish a package if its files changed in this push.
-      - uses: dorny/paths-filter@v3
-        id: changes
-        with:
-          filters: |
-            clear: clear/**
-            exit: exit/**
-
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          registry-url: https://registry.npmjs.org/
-
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
       - name: Publish pi-ext-clear
-        if: steps.changes.outputs.clear == 'true'
         working-directory: clear
-        run: npm publish
-
+        run: npm publish --provenance --access public
       - name: Publish pi-ext-exit
-        if: steps.changes.outputs.exit == 'true'
         working-directory: exit
-        run: npm publish
+        run: npm publish --provenance --access public
