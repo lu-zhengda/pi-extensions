@@ -1,9 +1,15 @@
 {
 	"name": "pi-ext-exit",
 	"version": "1.0.0",
-	"description": "pi extension: /exit — exit pi, like Ctrl+C",
+	"description": "pi extension: /exit \u2014 exit pi, like Ctrl+C",
 	"license": "MIT",
-	"keywords": ["pi", "pi-package", "pi-extension", "exit", "quit"],
+	"keywords": [
+		"pi",
+		"pi-package",
+		"pi-extension",
+		"exit",
+		"quit"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/lu-zhengda/pi-extensions.git",
@@ -12,8 +18,12 @@
 	"peerDependencies": {
 		"@earendil-works/pi-coding-agent": "*"
 	},
-	"files": ["extensions"],
+	"files": [
+		"extensions"
+	],
 	"pi": {
-		"extensions": ["extensions"]
+		"extensions": [
+			"extensions"
+		]
 	}
 }

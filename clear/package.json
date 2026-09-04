@@ -1,9 +1,15 @@
 {
 	"name": "pi-ext-clear",
 	"version": "1.0.0",
-	"description": "pi extension: /clear — clear the terminal and start a new session",
+	"description": "pi extension: /clear \u2014 clear the terminal and start a new session",
 	"license": "MIT",
-	"keywords": ["pi", "pi-package", "pi-extension", "clear", "session"],
+	"keywords": [
+		"pi",
+		"pi-package",
+		"pi-extension",
+		"clear",
+		"session"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/lu-zhengda/pi-extensions.git",
@@ -13,8 +19,12 @@
 		"@earendil-works/pi-coding-agent": "*",
 		"@earendil-works/pi-tui": "*"
 	},
-	"files": ["extensions"],
+	"files": [
+		"extensions"
+	],
 	"pi": {
-		"extensions": ["extensions"]
+		"extensions": [
+			"extensions"
+		]
 	}
 }
